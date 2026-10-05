@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для тебя ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial;
+            background: linear-gradient(135deg, #ffd1e3, #fff5f8);
+            color: #5c263d;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .page {
+            max-width: 850px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .start {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 21px;
+            margin-bottom: 35px;
+        }
+
+        .gift {
+            font-size: 130px;
+            cursor: pointer;
+            animation: shake 2s infinite;
+            transition: 0.4s;
+        }
+
+        .gift:hover {
+            transform: scale(1.15);
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(0);
+            }
+
+            25% {
+                transform: rotate(-8deg);
+            }
+
+            75% {
+                transform: rotate(8deg);
+            }
+        }
+
+        .hint {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        #content {
+            display: none;
+            animation: appear 1.5s;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .big-heart {
+            font-size: 60px;
+            animation: heartbeat 1.3s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .photo {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+            margin: 20px auto 35px;
+            display: block;
+        }
+
+        .intro {
+            background: rgba(255,255,255,0.7);
+            padding: 25px;
+            border-radius: 25px;
+            margin-bottom: 35px;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .compliments {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 22px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            font-size: 19px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: cardAppear 0.8s forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .card:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .card:nth-child(6) {
+            animation-delay: 1.2s;
+        }
+
+        .card:nth-child(7) {
+            animation-delay: 1.4s;
+        }
+
+        .card:nth-child(8) {
+            animation-delay: 1.6s;
+        }
+
+        .card:nth-child(9) {
+            animation-delay: 1.8s;
+        }
+
+        .card:nth-child(10) {
+            animation-delay: 2s;
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .
+        message {
+            background: white;
+            margin-top: 40px;
+            padding: 35px 25px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-size: 21px;
+            line-height: 1.7;
+        }
+
+        .message h2 {
+            font-size: 30px;
+        }
+
+        .footer-heart {
+            font-size: 45px;
+            margin-top: 30px;
+        }
+
+        .falling-heart {
+            position: fixed;
+            top: -50px;
+            font-size: 25px;
+            animation: fall linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 31px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .gift {
+                font-size: 100px;
+            }
+
+            .compliments {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="start" id="start">
+
+        <h1>У меня для тебя кое-что есть ❤️</h1>
+
+        <p class="subtitle">
+            Маленький подарок для одной очень особенной девушки...
+        </p>
+
+        <div class="gift" onclick="openGift()">
+            🎁
+        </div>
+
+        <p class="hint">
+            Нажми на подарок
+        </p>
+
+    </div>
+
+
+    <div id="content">
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <h1>
+            Это всё для тебя
+        </h1>
+
+        <img src="photo.jpg" class="photo">
+
+        <div class="intro">
+            Я долго думал, что же тебе подарить...
+            <br>
+            И решил сделать кое-что своими руками.
+            <br><br>
+            Поэтому этот маленький сайт — специально для тебя ❤️
+        </div>
+
+
+        <div class="compliments">
+
+            <div class="card">
+                Ты невероятно красивая ❤️
+            </div>
+
+            <div class="card">
+                У тебя потрясающая улыбка 😊
+            </div>
+
+            <div class="card">
+                Ты делаешь мои дни намного ярче
+            </div>
+
+            <div class="card">
+                С тобой никогда не бывает скучно
+            </div>
+
+            <div class="card">
+                Ты действительно особенная ✨
+            </div>
+
+            <div class="card">
+                Мне очень нравится твой характер
+            </div>
+
+            <div class="card">
+                Ты заслуживаешь самого лучшего
+            </div>
+
+            <div class="card">
+                Рядом с тобой хочется улыбаться
+            </div>
+
+            <div class="card">
+                Ты умеешь делать обычные моменты особенными
+            </div>
+
+            <div class="card">
+                Просто оставайся собой — ты прекрасна ❤️
+            </div>
+
+        </div>
+
+
+        <div class="message">
+
+            <h2>
+                И ещё кое-что...
+            </h2>
+
+            Я мог бы написать здесь сотни комплиментов,
+            но всё равно не смог бы описать,
+            насколько ты мне дорога.
+
+            <br><br>
+
+            Спасибо тебе за улыбки,
+            за разговоры, за моменты
+            и просто за то, что ты есть.
+
+            <br><br>
+
+            <b>
+                Надеюсь, этот маленький подарок
+                заставит тебя улыбнуться ❤️
+            </b>
+
+        </div>
+
+        <div class="footer-heart">
+            💗 💕 💗
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function openGift() {
+
+        document.getElementById("start").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        createHearts();
+
+    }
+
+
+    function createHearts() {
+
+setInterval(function() {
+
+            const heart = document.createElement("div");
+
+            heart.className = "falling-heart";
+
+            const hearts = ["❤️", "💕", "💗", "💖", "💘"];
+
+            heart.innerHTML =
+                hearts[Math.floor(Math.random() * hearts.length)];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function() {
+                heart.remove();
+            }, 7000);
+
+        }, 400);
+
+    }
+
+</script>
+
+</body>
+</html>
